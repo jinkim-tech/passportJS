@@ -13,7 +13,6 @@ app.use(session({
 }))
 
 app.get('/', function (req, res, next) {
-    console.log(req.session);
     if(req.session.num === undefined){
         req.session.num = 1;
     } else {

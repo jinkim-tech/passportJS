@@ -66,14 +66,11 @@ passport.use(
 		function(username, password, done) {
 			if (username === authData.email) {
 				if (password === authData.password) {
-					console.log('Login Success');
 					return done(null, authData);
 				} else {
-					console.log('Incorrect password');
 					return done(null, false, { message: 'Incorrect password.' });
 				}
 			} else {
-				console.log('Incorrect Username');
 				return done(null, false, { message: 'Incorrect username.' });
 			}
 		}
@@ -112,7 +109,6 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(err, req, res, next) {
-	console.error(err.stack);
 	res.status(500).send('Something broke!');
 });
 
